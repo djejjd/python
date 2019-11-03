@@ -4,11 +4,11 @@ import heapq
 
 class HuffmanTree:
     def __init__(self):
-        self.char = []
-        self.node = None
-        self.nodes_list = []
-        self.char_list = {}
-        self.chars_change = {}
+        self.char = []  # 储存输入文件中的字符种类
+        self.node = None  # 储存最终构建的二叉树
+        self.nodes_list = []  # 储存构建的二叉树的各个节点
+        self.char_list = {}  # 储存各个字符和其出现的次数
+        self.chars_change = {}  # 储存每个字符对应的编码
         self.get_input()
 
     # 获取输入中各个字符出现的次数
@@ -30,6 +30,7 @@ class HuffmanTree:
         self.get_optimal_coding(node=self.node, nums="")
         self.output()
 
+    # 构建节点列表
     def get_Nodes(self):
         heap = []
         for i in self.char_list:
@@ -58,11 +59,11 @@ class HuffmanTree:
     def get_optimal_coding(self, node, nums):
         if node is None:
             return
-        self.get_optimal_coding(node.leftChild, nums+'0')
+        self.get_optimal_coding(node.leftChild, nums + '0')
         if node.character is not None:
             self.chars_change[node.character] = nums
-            print(str(node.character)+" 的权值为: "+str(node.weight)+", 编码为: "+nums)
-        self.get_optimal_coding(node.rightChild, nums+'1')
+            print(str(node.character) + " 的权值为: " + str(node.weight) + ", 编码为: " + nums)
+        self.get_optimal_coding(node.rightChild, nums + '1')
 
     # 将字母换成编码输出
     def output(self):

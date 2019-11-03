@@ -1,7 +1,8 @@
+# 二分查找
 import random
 
 
-def BinarySearch(a, x: int, n: int):
+def BinarySearch(a: list, x: int, n: int):
     left = 0
     right = n - 1
 

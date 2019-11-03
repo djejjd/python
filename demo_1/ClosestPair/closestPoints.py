@@ -1,8 +1,7 @@
+# 最近点对问题求解
 import random
 import sys
 
-# 最近点对问题求解
-import time
 
 sys.setrecursionlimit(10000)  # set the maximum depth as 10000
 
@@ -14,7 +13,7 @@ min_length_x = 999999999
 
 
 # 输入点坐标
-def get_point(x, y):
+def get_point(x: int, y: int):
     i = (x, y)
     if i in point:
         pass
@@ -24,7 +23,7 @@ def get_point(x, y):
 
 
 # 排序
-def sort_point(num, left_sort, right_sort, i, j):
+def sort_point(num: list, left_sort: int, right_sort: int, i: int, j: int):
     left = left_sort
     right = right_sort
 
@@ -49,14 +48,13 @@ def sort_point(num, left_sort, right_sort, i, j):
 
 
 # 求距离
-def get_distance(a, b):
+def get_distance(a: int, b: int) -> float:
     length = int((a[0] - b[0])) * int((a[0] - b[0])) + int((a[1] - b[1])) * int((a[1] - b[1]))
     return float('%.2f' % pow(length, 0.5))
 
 
 # 求点集的最短距离
-def get_min_distance(min_length, num, left_point, right_point, k):
-    # print(t, num[left])
+def get_min_distance(min_length: int, num: list, left_point: int, right_point: int, k: int):
     if k == 0:
         t = num[left_point]
         left = left_point + 1
@@ -87,39 +85,34 @@ def get_min_distance(min_length, num, left_point, right_point, k):
 
 
 # 得到在d-L和d+L中的点集,并使用归并排序进行排序求距离
-def sort_point_in_d(num, left_point, right_point):
+def sort_point_in_d(num: list, left_point: int, right_point: int):
     left = left_point
     right = right_point
     for i in num:
         if left <= i[0] <= right:
             y_point.append(i)
-    # print('y_point:', y_point)
     merge_sort(y_point, 0, len(y_point) - 1, 1)
 
 
 # 归并排序
-def merge_sort(num, left_point, right_point, j):
+def merge_sort(num: list, left_point: int, right_point: int, j: int):
     if left_point >= right_point:
         return
     mid_y = int((left_point + right_point) / 2)
 
     merge_sort(num, left_point, mid_y, j)
-    # print(left_point, mid_y)
     merge_sort(num, mid_y + 1, right_point, j)
-    # print(mid_y+1, right_point)
     merge(y_point, left_point, mid_y, right_point, j)
 
 
-def merge(num, left_point, mid_, right_point, j):
+def merge(num: list, left_point: int, mid_: int, right_point: int, j: int):
     left = left_point
     temp = left_point
     b = mid_ + 1
     arr = [(0, 0) for i in range(len(num))]
-    # print(left_point, mid_, right_point)
 
     while left_point <= mid_ and b <= right_point:
         if num[left_point][j] > num[b][j]:
-            # print('num[left_point][j]:', num[left_point][j])
             arr[left] = num[b]
             b = b + 1
             left = left + 1
@@ -140,14 +133,13 @@ def merge(num, left_point, mid_, right_point, j):
     while temp <= right_point:
         num[temp] = arr[temp]
         temp = temp + 1
-    # print('num:', num)
 
 
-def get_min_distance_by_violence(minlength, num, left_point, right_point):
+# 暴力法求解最近点对中最近的距离
+def get_min_distance_by_violence(minlength: int, num: list, left_point: int, right_point: int):
     if len(num) == 1:
         return minlength
     elif len(num) == 2:
-        # minlength = get_distance(num[left_point], num[right_point])
         return get_distance(num[left_point], num[right_point])
     else:
         for i in num:
@@ -163,13 +155,11 @@ if __name__ == '__main__':
         for kq in range(10):
             get_point(random.randint(1, 10), random.randint(1, 10))
 
-        # print(point)
         minLength_by_violence = get_min_distance_by_violence(min_length_x, point, 0, len(point) - 1)
 
         # 对点集按照x坐标排序并划分
         sort_point(x_point, 0, len(x_point) - 1, 0, 1)
         mid = int(len(x_point) / 2)
-        # print('mid:', mid)
 
         # 求左右两部分点集的最短距离
         get_min_distance(min_length_x, x_point, 0, mid, 0)
@@ -181,9 +171,8 @@ if __name__ == '__main__':
         # 求出mid-d和mid+d点集间的最小距离
         get_min_distance(min_length_x, y_point, 0, len(y_point) - 1, 1)
 
-        # print('最短距离集合: ', distance_point)
-        # print('最短距离: ', min(distance_point))
         if minLength_by_violence == min(distance_point):
             print("True")
         else:
             break
+

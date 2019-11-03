@@ -16,7 +16,6 @@ def greedySelector(s, f, a):
             a[i] = 1
     return count
 
-
 def output(a, count):
     print("共" + str(count) + "个活动符合安排")
     for i in range(len(a)):
@@ -30,4 +29,3 @@ if __name__ == '__main__':
     num = np.array([2] * len(num_s), dtype=int)
     times = greedySelector(num_s, num_f, num)
     output(num, times)
-# 1 4 8 11

@@ -1,3 +1,5 @@
+# 矩阵连乘
+
 def MatrixChain(p, m, s):
     n = len(p) - 1
     for i in range(1, n):

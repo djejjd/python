@@ -1,3 +1,5 @@
+# 最长公共子序列
+
 def LcsLength(str_a, str_b, c):
     a = len(str_a) - 1
     b = len(str_b) - 1

@@ -3,20 +3,16 @@ import numpy
 
 
 # 对数组进行拆分，拆成一个一个独立的数
-def sortArr(arr, left: int, right: int):
+def sortArr(arr: list, left: int, right: int):
     if left < right:
         mid = int((left + right) / 2)
         sortArr(arr, left, mid)
-        # print("1: "+str(left)+"\t"+str(mid))
         sortArr(arr, mid + 1, right)
-        # print("2: "+str(mid+1)+"\t"+str(right))
-        # print(str(left), str(mid), str(right))
-        # print("调用")
         merge(arr, left, mid, right)
 
 
 # 对一个一个的数进行合并排序
-def merge(arr, left, mid, right):
+def merge(arr, left: int, mid: int, right: int):
     num = [0 for _ in arr]
     a = left
     temp = left
