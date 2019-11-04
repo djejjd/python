@@ -38,7 +38,7 @@ def dijkstra(v: int, a, dist, prev):
 # 获得输入
 def get_input():
     a = []
-    path = '/home/warren/projects/PycharmProjects/algorithm/demo_3/GreedySelector/input.txt'
+    path = '/home/warren/projects/PycharmProjects/algorithm/demo_3/Dijkstra/input.txt'
 
     with open(path, 'r') as f:
         for read in f.readlines():
