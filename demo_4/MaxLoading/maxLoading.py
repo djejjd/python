@@ -1,3 +1,4 @@
+# 装载问题(回溯法)
 import numpy as np
 
 
@@ -49,6 +50,7 @@ class Loading:
             self.traceback(i+1)
         self.r += self.w[i]
 
+# 获取输入
 def get_input():
     weight = []
     path = '/home/warren/projects/PycharmProjects/algorithm/demo_4/MaxLoading/input.txt'
@@ -67,14 +69,25 @@ def get_input():
     return number, weight, a, b
 
 
-num, weight_list, ship_c_1, ship_c_2 = get_input()
-p = Loading(num, weight_list, ship_c_1)
-for product in range(len(p.bestx)):
-    if p.bestx[product] == 1:
-        print('将集装箱'+str(product)+'装入第一艘轮船，货物重量：'+str(weight_list[product]))
-for i in range(1, len(p.bestx)):
-    if p.bestx[i] == 0:
-        print('将集装箱'+str(i)+'装入第二艘轮船，货物重量：'+str(weight_list[i]))
+if __name__ == '__main__':
+    num, weight_list, ship_c_1, ship_c_2 = get_input()
+    p = Loading(num, weight_list, ship_c_1)
+    for product in range(len(p.bestx)):
+        if p.bestx[product] == 1:
+            print('将集装箱'+str(product)+'装入第一艘轮船，货物重量：'+str(weight_list[product]))
+    sum_weight = 0
+    for i in range(1, len(p.bestx)):
+        if p.bestx[i] == 0:
+            sum_weight += weight_list[i]
+            if sum_weight < ship_c_2:
+                print('将集装箱' + str(i) + '装入第二艘轮船，货物重量：' + str(weight_list[i]))
 
+# 测试样例
+# 3
+# 0 20 35 48 34 46
+# 70 50
 
+# 3
+# 0 10 40 40
+# 50 50
 
