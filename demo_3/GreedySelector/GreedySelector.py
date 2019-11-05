@@ -1,3 +1,10 @@
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-27
+   Author: 张海伦
+   Version: 1.0
+   Title: 活动安排问题
+"""
 import numpy as np
 
 

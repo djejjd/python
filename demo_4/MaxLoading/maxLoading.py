@@ -1,4 +1,10 @@
-# 装载问题(回溯法)
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-11-05
+   Author: 张海伦
+   Version: 1.0
+   Title: 装载问题(回溯法)
+"""
 import numpy as np
 
 
@@ -17,8 +23,8 @@ class Loading:
     def maxLoading(self):
         # 初始化r, x, bestx
         w = self.w
-        for i in range(0, len(w)):
-            self.r += w[i]
+        for k in range(0, len(w)):
+            self.r += w[k]
             self.x.append(0)
             self.bestx.append(0)
         self.traceback(1)
@@ -76,11 +82,11 @@ if __name__ == '__main__':
         if p.bestx[product] == 1:
             print('将集装箱'+str(product)+'装入第一艘轮船，货物重量：'+str(weight_list[product]))
     sum_weight = 0
-    for i in range(1, len(p.bestx)):
-        if p.bestx[i] == 0:
-            sum_weight += weight_list[i]
+    for t in range(1, len(p.bestx)):
+        if p.bestx[t] == 0:
+            sum_weight += weight_list[t]
             if sum_weight < ship_c_2:
-                print('将集装箱' + str(i) + '装入第二艘轮船，货物重量：' + str(weight_list[i]))
+                print('将集装箱' + str(t) + '装入第二艘轮船，货物重量：' + str(weight_list[t]))
 
 # 测试样例
 # 3

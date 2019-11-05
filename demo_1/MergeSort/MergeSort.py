@@ -1,3 +1,10 @@
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-13
+   Author: 张海伦
+   Version: 1.0
+   Title: 归并排序
+"""
 import time
 import numpy
 

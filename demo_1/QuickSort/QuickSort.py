@@ -1,3 +1,10 @@
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-14
+   Author: 张海伦
+   Version: 1.0
+   Title: 快速排序
+"""
 import numpy
 
 

@@ -1,4 +1,10 @@
-# 凸多边形最优三角划分
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-23
+   Author: 张海伦
+   Version: 1.0
+   Title: 凸多边形最优三角形划分
+"""
 import math
 
 

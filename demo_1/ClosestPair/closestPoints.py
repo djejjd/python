@@ -1,4 +1,10 @@
-# 最近点对问题求解
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-17
+   Author: 张海伦
+   Version: 1.0
+   Title: 最近点对问题求解
+"""
 import random
 import sys
 
@@ -133,7 +139,6 @@ def merge(num: list, left_point: int, mid_: int, right_point: int, j: int):
     while temp <= right_point:
         num[temp] = arr[temp]
         temp = temp + 1
-
 
 # 暴力法求解最近点对中最近的距离
 def get_min_distance_by_violence(minlength: int, num: list, left_point: int, right_point: int):

@@ -1,5 +1,10 @@
-# 最长公共子序列
-
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-21
+   Author: 张海伦
+   Version: 1.0
+   Title: 最长公共子序列问题求解
+"""
 def LcsLength(str_a, str_b, c):
     a = len(str_a) - 1
     b = len(str_b) - 1

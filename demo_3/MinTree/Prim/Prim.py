@@ -1,7 +1,12 @@
-# 最小生成树之prim算法
-import re
-import numpy as np
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-11-03
+   Author: 张海伦
+   Version: 1.0
+   Title: 最小生成树之prim算法
+"""
 import sys
+import numpy as np
 
 
 def prim(v: int, points):

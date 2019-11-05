@@ -1,3 +1,10 @@
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-11-04
+   Author: 张海伦
+   Version: 1.0
+   Title: 最小生成树之kruskal算法
+"""
 import heapq
 import numpy as np
 from demo_3.MinTree.Kruskal.EdgeNode import EdgeNode

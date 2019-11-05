@@ -1,4 +1,10 @@
-# 单源最短路径
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-11-01
+   Author: 张海伦
+   Version: 1.0
+   Title: 单源最短路径
+"""
 import numpy as np
 
 MAX = 999999

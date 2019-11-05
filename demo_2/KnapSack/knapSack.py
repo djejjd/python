@@ -1,4 +1,10 @@
-# 0-1背包问题
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-10-25
+   Author: 张海伦
+   Version: 1.0
+   Title: 0-1背包问题
+"""
 
 
 def get_pack(v, w, m: int, bag):
