@@ -5,6 +5,8 @@
    Version: 1.0
    Title: 0-1背包(回溯法)
 """
+import numpy
+
 from demo_4.Knapsack.Product import Element
 
 
@@ -34,7 +36,7 @@ class Knapsack:
             n = self.n - 1 - i
             sorted_nodes_list[n] = nodes_list[i]
         self.traceback(0, sorted_nodes_list)
-        print(self.bestp, self.bestx)
+        print('最优价值: '+str(self.bestp)+"\n"+'最优方案: '+str(self.bestx))
 
     def traceback(self, i, nodes):
         # 到达叶节点
@@ -56,9 +58,9 @@ class Knapsack:
             self.cp -= nodes[i].value
 
         # 对右子树进行回溯
-        if self.bound(i+1, nodes) > self.bestp:
+        if self.bound(i + 1, nodes) > self.bestp:
             self.x[nodes[i].id] = 0  # 进入右子树
-            self.traceback(i+1, nodes)
+            self.traceback(i + 1, nodes)
 
     # 获得右子树的上界
     def bound(self, i, nodes):
@@ -72,12 +74,28 @@ class Knapsack:
 
         # 装满背包
         if i < self.n:
-            bound += cleft*(nodes[i].value/nodes[i].weight)
+            bound += cleft * (nodes[i].value / nodes[i].weight)
         return bound
 
 
-t = Knapsack(7, 4, [3, 5, 2, 1], [9, 10, 7, 4])
+# 获取输入
+def get_input():
+    path = '/home/warren/projects/PycharmProjects/algorithm/demo_4/Knapsack/input.txt'
+    with open(path, 'r') as f:
+        for i, content in enumerate(f.readlines()):
+            if i == 0:
+                bag = int(content.strip())
+            elif i == 1:
+                num = int(content.strip())
+            elif i == 2:
+                weight_list = numpy.array(content.split(), dtype=int)
+            elif i == 3:
+                value_list = numpy.array(content.split(), dtype=int)
+    return bag, num, weight_list, value_list
 
+
+t = Knapsack(get_input()[0], get_input()[1], get_input()[2], get_input()[3])
+# t = Knapsack(7, 4, [3, 5, 2, 1], [9, 10, 7, 4])
 # 测试实例
 # 7, 4, [3, 5, 2, 1], [9, 10, 7, 4]
 # 9, 4, [2, 3, 4, 5], [3, 4, 5, 7]

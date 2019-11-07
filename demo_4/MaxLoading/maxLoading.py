@@ -65,7 +65,6 @@ def get_input():
             if place == 0:
                 number = int(content.strip())
             elif place == 1:
-
                 weight = content.split()
             else:
                 a = int(content.split()[0])
