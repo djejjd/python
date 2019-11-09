@@ -1,3 +1,10 @@
+"""
+   Copyright: Copyright(c) 2019 张海伦　All rights reserved
+   Created on: 2019-11-09
+   Author: 张海伦
+   Version: 1.0
+   Title: 装载问题(分支界限法)
+"""
 import os
 import heapq
 import numpy as np
