@@ -8,9 +8,8 @@
 import time
 import numpy
 
-
 # 对数组进行拆分，拆成一个一个独立的数
-def sortArr(arr: list, left: int, right: int):
+def sortArr(arr, left: int, right: int):
     if left < right:
         mid = int((left + right) / 2)
         sortArr(arr, left, mid)
@@ -49,11 +48,12 @@ def merge(arr, left: int, mid: int, right: int):
     while temp <= right:
         arr[temp] = num[temp]
         temp = temp + 1
-    print(arr)
 
 
 if __name__ == '__main__':
     while True:
         arr_list = numpy.random.randint(100, size=20)
+        print('排序前数组: ', arr_list)
         sortArr(arr_list, 0, len(arr_list) - 1)
+        print('排序后的数组: ', arr_list)
         time.sleep(3)

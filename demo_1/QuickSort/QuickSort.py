@@ -5,6 +5,7 @@
    Version: 1.0
    Title: 快速排序
 """
+
 import numpy
 
 
@@ -36,5 +37,6 @@ def SortNum(arr, left_Sort: int, right_Sort: int):
 if __name__ == '__main__':
     while True:
         num = numpy.random.randint(100, size=20)
+        print('排序前的数组: ', num)
         SortNum(num, 0, len(num)-1)
-        print(num)
+        print('排序后的数组: ', num)

@@ -5,6 +5,7 @@
    Version: 1.0
    Title: 装载问题(回溯法)
 """
+import os
 import numpy as np
 
 
@@ -59,7 +60,7 @@ class Loading:
 # 获取输入
 def get_input():
     weight = []
-    path = '/home/warren/projects/PycharmProjects/algorithm/demo_4/MaxLoading/input.txt'
+    path = os.getcwd()+'/input.txt'
     with open(path, 'r') as f:
         for place, content in enumerate(f.readlines()):
             if place == 0:
@@ -88,9 +89,12 @@ if __name__ == '__main__':
                 print('将集装箱' + str(t) + '装入第二艘轮船，货物重量：' + str(weight_list[t]))
 
 # 测试样例
-# 3
+# 集装箱数目
+# 集装箱重量
+# 轮船的容量
+# 5
 # 0 20 35 48 34 46
-# 70 50
+# 70 5070, [20, 35, 48, 34, 46]
 
 # 3
 # 0 10 40 40

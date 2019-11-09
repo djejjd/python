@@ -5,6 +5,7 @@
    Version: 1.0
    Title: 最小生成树之kruskal算法
 """
+import os
 import heapq
 import numpy as np
 from demo_3.MinTree.Kruskal.EdgeNode import EdgeNode
@@ -60,7 +61,7 @@ def Kruskal(num: int, points):
 # 获得输入
 def get_input():
     a = []
-    path = '/home/warren/projects/PycharmProjects/algorithm/demo_3/MinTree/Kruskal/input.txt'
+    path = os.getcwd()+'/input.txt'
 
     with open(path, 'r') as f:
         for read in f.readlines():

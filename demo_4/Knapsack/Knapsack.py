@@ -5,6 +5,7 @@
    Version: 1.0
    Title: 0-1背包(回溯法)
 """
+import os
 import numpy
 
 from demo_4.Knapsack.Product import Element
@@ -80,7 +81,7 @@ class Knapsack:
 
 # 获取输入
 def get_input():
-    path = '/home/warren/projects/PycharmProjects/algorithm/demo_4/Knapsack/input.txt'
+    path = os.getcwd()+'/input.txt'
     with open(path, 'r') as f:
         for i, content in enumerate(f.readlines()):
             if i == 0:
@@ -95,7 +96,6 @@ def get_input():
 
 
 t = Knapsack(get_input()[0], get_input()[1], get_input()[2], get_input()[3])
-# t = Knapsack(7, 4, [3, 5, 2, 1], [9, 10, 7, 4])
 # 测试实例
 # 7, 4, [3, 5, 2, 1], [9, 10, 7, 4]
 # 9, 4, [2, 3, 4, 5], [3, 4, 5, 7]

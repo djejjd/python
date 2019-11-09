@@ -5,8 +5,9 @@
    Version: 1.0
    Title: 哈夫曼编码
 """
-from demo_3.Huffman.Node import Node
+import os
 import heapq
+from demo_3.Huffman.Node import Node
 
 
 class HuffmanTree:
@@ -20,7 +21,7 @@ class HuffmanTree:
 
     # 获取输入中各个字符出现的次数
     def get_input(self):
-        path = '/home/warren/projects/PycharmProjects/algorithm/demo_3/Huffman/input.txt'
+        path = os.getcwd()+'/input.txt'
         with open(path, 'r') as f:
             for text in f.readlines():
                 for i in range(len(text.strip())):

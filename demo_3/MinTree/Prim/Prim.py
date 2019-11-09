@@ -5,6 +5,7 @@
    Version: 1.0
    Title: 最小生成树之prim算法
 """
+import os
 import sys
 import numpy as np
 
@@ -51,7 +52,7 @@ def prim(v: int, points):
 # 获得输入
 def get_input():
     a = []
-    path = '/home/warren/projects/PycharmProjects/algorithm/demo_3/MinTree/Prim/input.txt'
+    path = os.getcwd()+'/input.txt'
 
     with open(path, 'r') as f:
         for read in f.readlines():

@@ -5,6 +5,8 @@
    Version: 1.0
    Title: 单源最短路径
 """
+import os
+
 import numpy as np
 
 MAX = 999999
@@ -44,7 +46,7 @@ def dijkstra(v: int, a, dist, prev):
 # 获得输入
 def get_input():
     a = []
-    path = '/home/warren/projects/PycharmProjects/algorithm/demo_3/Dijkstra/input.txt'
+    path = os.getcwd()+'/input.txt'
 
     with open(path, 'r') as f:
         for read in f.readlines():
