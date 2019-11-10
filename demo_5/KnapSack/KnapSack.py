@@ -51,14 +51,14 @@ class KnapSack:
         cleft = self.c - self.cw  # 背包剩余的容量
         bound = float(self.cp)  # 存储该节点的价值上界
 
-        while i < len(self.w) and cleft > self.w[i]:
+        while i < len(self.w) and cleft >= self.w[i]:
             bound += self.p[i]
             cleft -= self.w[i]
             i += 1
 
         # 装满背包剩余空间
         if i < len(self.w):
-            bound += cleft + cleft * (self.p[i] / self.w[i])
+            bound += cleft * (self.p[i] / self.w[i])
         return bound
 
     def knapsack(self):
@@ -75,7 +75,7 @@ class KnapSack:
 
             up_value = self.get_up_value(i+1)
             # 如果右子树的价值上界大于当前最大价值，说明右子树中可能有最优解，则对右子树进行检查
-            if up_value > bestp:
+            if up_value >= bestp:
                 self.addNode(e, False, self.cw, self.cp, i+1, up_value)
 
             # 获得下一扩展节点
@@ -94,11 +94,28 @@ class KnapSack:
             e = e.parent
 
         # 打印结果
-        print(bestx)
+        for i, j in enumerate(bestx):
+            if j == 1:
+                print('将质量为: '+str(self.w[i])+',价值为: '+str(self.p[i])+'的物品装入背包中')
 
     def addNode(self, parent, child, weight, value, place, uValue):
         new_node = PackNode(parent, child, weight, value, place, uValue)
         heapq.heappush(self.nodes_list, new_node)
 
+# 获取输入
+def get_input():
+    path = os.getcwd()+'/input.txt'
+    with open(path, 'r') as f:
+        for i, j in enumerate(f.readlines()):
+            if i == 0:
+                bag = int(j.strip())
+            elif i == 1:
+                weight_list = np.array(j.split(), dtype=int)
+            elif i == 2:
+                value_list = np.array(j.split(), dtype=int)
+    f.close()
+    return bag, weight_list, value_list
 
-KnapSack(50, [10, 40, 40], [20, 50, 70])
+
+bags, weights_list, values_list = get_input()
+KnapSack(bags, weights_list, values_list)

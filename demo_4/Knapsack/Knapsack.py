@@ -92,6 +92,7 @@ def get_input():
                 weight_list = numpy.array(content.split(), dtype=int)
             elif i == 3:
                 value_list = numpy.array(content.split(), dtype=int)
+    f.close()
     return bag, num, weight_list, value_list
 
 
