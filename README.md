@@ -70,4 +70,3 @@
   
  >[KnapSack.py](demo_5/KnapSack/KnapSack.py)
 
- test
